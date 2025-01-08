@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensamiento Lógico Básico</title>
+    <link rel="stylesheet" href="/styles/modules.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <% if(locals.question && locals.options){ %>
+        <div class="main-bar">
+            <div class="incremental-bar" style="width: <%= locals.progress%>%"></div>
+        </div>
+        <% if(question.type === "multipleChoice") {%>
+            <div class="question" id="<%= question.question_id %>">
+                <form action="/next-question" method="POST">
+                    
+                    <h2 class="question-statement"><%= question.question_text %></h2>
+                    <div class="options">
+                        <% options.forEach(option => { %>
+                            <label>
+                                <input type="radio" name="selectedOption" value="<%= option.option_id %>" required>
+                                <%= option.option_text %>
+                                <span class="checkmark"></span>
+                            </label>
+                        <% }) %> 
+                    </div>
+                    <!-- Campo oculto para enviar el ID de la pregunta -->
+                    <input type="hidden" name="questionId" value="<%= question.question_id %>">
+                    <button class="check-answer" type="submit">Siguiente</button>
+                </form>
+                <button class="btnFinishQuizz">
+                    <a href="/result-module">Terminar Quizz</a>
+                </button>
+            </div>
+    <% } else if(question.type === "write") { %>
+        <div class="question" id="<%= question.question_id %>">
+            <form action="/next-question" method="POST">
+                <h2 class="question-statement"><%= question.question_text %></h2>
+                <div class="options">
+                        <input type="text" name="selectedOption" placeholder="Respuesta" class="byText" required>
+                </div>
+                <!-- Campo oculto para enviar el ID de la pregunta -->
+                <input type="hidden" name="questionId" value="<%= question.question_id %>">
+                <button class="check-answer " type="submit">Siguiente</button>
+            </form>
+            <button class="btnFinishQuizz">
+                <a href="/result-module">Terminar Quizz</a>
+            </button>
+        </div>
+        <% } %>
+    <% } %>       
+    
+    <script src="scrips/moduleScrip.js"></script>
+</body>
+</html>

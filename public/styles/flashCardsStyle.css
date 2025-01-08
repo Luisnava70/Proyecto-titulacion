@@ -1,0 +1,282 @@
+:root {
+    --main-fund: #AEDFF7;
+    --Featured-Sections: #FFBf00;
+    --buttons-ctas: #2ECC71;
+    --secundary-funs: #F5F5F5;
+    --text-principal: #3b3b3b;
+    --text-secondary: #e2dddc;
+    --links: #FF914D;
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "asidel  content content"
+        "asidel content content"
+        "asidel content content";
+        width: 100%;
+        height: 100vh;
+        background-color: var(--main-fund);
+        gap: 5px;
+}
+
+ul li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+main {
+    grid-area: content;
+    width: 100%;
+    height: 100vh;
+}
+
+.carousel {
+    position: relative;
+    width: 60%; /* Ahora ocupa el 100% del ancho del contenedor */
+    max-width: 80%; /* Previene que exceda el tamaño del contenedor */
+    height: auto; /* Se ajustará automáticamente a la proporción de las imágenes */
+    overflow: hidden;
+    margin: auto;
+    margin-top: 25px;
+}
+
+/* Contenedor de las imágenes */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo de las imágenes */
+.carousel-images img {
+    width: 100%; /* Las imágenes ocuparán todo el ancho del carrusel */
+    height: auto; /* Ajuste automático de altura para mantener proporción */
+    object-fit: cover;
+}
+
+  /* Estilos de los botones */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 1px;
+}
+
+.next-btn {
+    right: 1px;
+}
+
+.user-work--area {
+    display: grid;
+    width: 100%;
+    grid-area: asidel;
+    border-right: 1px solid var(--secundary-funs);
+}
+
+.user-work--area {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.user-work--area .home-title{
+    width: 100%;
+    height: 30vh;
+}
+
+
+.user-work--area .home-title figure{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    margin: 15px 0;
+}
+
+.home-title figure img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px;
+}
+
+.user-area--opt {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.user-area--opt .opt-user-img{
+    display: inline-block; 
+    width: 30px; 
+    height: 30px; 
+    background-size: cover; 
+    background-position: center; 
+}
+
+.user-opt{
+    width: 90%;
+    height: 70px;
+    position: relative;
+}
+
+.user-area--opt .user-opt a{
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-principal);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+
+.user-area--opt .user-opt a p {
+    margin-left: 10px;
+}
+
+
+
+#logout{
+    background-color: red;
+    width: 140px;
+    height: 35px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+}
+
+
+.aprender{
+    background: url("/images/opt-user-icon/icons8-home-48.png");
+}
+.cards{
+    background: url("/images/opt-user-icon/icons8-tips-64.png");
+}
+.perfil{
+    background: url("/images/opt-user-icon/icons8-user-50.png");
+}
+.config{
+    background: url("/images/opt-user-icon/icons8-configuration-48.png");
+}
+
+.user-opt-phone{
+    display: none;
+}
+
+@media (max-width: 480px){
+    body {
+        font-family: Arial, sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-areas: 
+            "content"
+            "content"
+            "content";
+            width: 100%;
+            height: 100vh;
+            background-color: var(--main-fund);
+            gap: 5px;
+    }
+
+    .carousel {
+        position: relative;
+        width: 90%; /* Ahora ocupa el 100% del ancho del contenedor */
+        max-width: 80%; /* Previene que exceda el tamaño del contenedor */
+        height: auto; /* Se ajustará automáticamente a la proporción de las imágenes */
+        overflow: hidden;
+        margin: auto;
+        margin-top: 25px;
+    }
+
+    .user-opt-phone{
+        width: 100%;
+        height: 10vh;
+        grid-area: footer;
+        display: block;
+        position: fixed;
+        bottom: 0;
+        border-top: 1px solid white;
+    }
+
+    .user-opt-phone .opt-user-phone{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .user-opt-phone .opt-user-phone li {
+        width: 20%;
+        height: 100%;
+    }
+
+    .user-opt-phone .opt-user-phone li a {
+        width: 100%;
+        height: 100%;
+    }
+
+    .user-opt-phone .opt-user-phone li a span{
+        display: inline-block;
+        width: 70%;
+        height: 70%;
+        background-size: cover; 
+        background-position: center;
+        margin: 10px 10px;
+    }
+
+    .user-opt-phone .opt-user-phone .logout a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: red;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .user-work--area{
+        display: none;
+    } 
+
+
+}

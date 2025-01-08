@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Cards</title>
+    <link rel="stylesheet" href="styles/flashCardsStyle.css">
+</head>
+<body>
+
+    <main>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="/images/flasCards/Arrays/1.png" alt="Imagen 1" />
+                <img src="/images/flasCards/Arrays/2.png" alt="Imagen 2" />
+                <img src="/images/flasCards/Arrays/3.png" alt="Imagen 3" />
+                <img src="/images/flasCards/Arrays/4.png" alt="Imagen 4" />
+                <img src="/images/flasCards/Arrays/5.png" alt="Imagen 5" />
+                <img src="/images/flasCards/Arrays/6.png" alt="Imagen 6" />
+                <img src="/images/flasCards/Arrays/7.png" alt="Imagen 7" />
+                <img src="/images/flasCards/Arrays/8.png" alt="Imagen 8" />
+                <img src="/images/flasCards/Arrays/9.png" alt="Imagen 9" />
+                <img src="/images/flasCards/Arrays/10.png" alt="Imagen 10" />
+                <img src="/images/flasCards/Arrays/11.png" alt="Imagen 11" />
+            </div>
+            <button class="prev-btn">&lt;</button>
+            <button class="next-btn">&gt;</button>
+        </div>
+    </main>
+    <aside class="user-work--area">
+        <div class="home-title">
+            <%- include("partials/logo.ejs") %>
+        </div>
+        <ul class="user-area--opt">
+            <li class="user-opt">
+                <a href="/main-page">
+                    <span class="opt-user-img aprender"></span>
+                    <p>Aprender</p>
+                </a>
+            </li>
+            <li class="user-opt">
+                <a href="/flash-cards"><span class="opt-user-img cards"></span><p>Flash Cards</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-profile"><span class="opt-user-img perfil"></span><p>Perfil</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-config"><span class="opt-user-img config"></span><p>Configuración</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/logout" class="logout" id="logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer class="user-opt-phone">
+        <ul class="opt-user-phone">
+            <li>
+                <a href="/main-page">
+                    <span class="aprender"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/flash-cards">
+                    <span class="cards"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-profile">
+                    <span class="perfil"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-config">
+                    <span class="config"></span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="/logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+    const images = document.querySelectorAll('.carousel-images img');
+    const prevButton = document.querySelector('.prev-btn');
+    const nextButton = document.querySelector('.next-btn');
+
+    let currentIndex = 0;
+
+    // Ajustar desplazamiento dinámico basado en el tamaño del carrusel
+    function updateCarousel() {
+        const carouselWidth = document.querySelector('.carousel').offsetWidth;
+        carouselImages.style.transform = `translateX(${-carouselWidth * currentIndex}px)`;
+    }
+
+    // Botón "Siguiente"
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Reiniciar al principio si llega al final
+        }
+        updateCarousel();
+    });
+
+    // Botón "Anterior"
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = images.length - 1; // Ir al final si está en el principio
+        }
+        updateCarousel();
+    });
+
+    // Actualizar desplazamiento cuando la ventana cambie de tamaño
+    window.addEventListener('resize', updateCarousel);
+
+    // Inicializar el carrusel
+    updateCarousel();
+    </script>
+</body>
+</html>

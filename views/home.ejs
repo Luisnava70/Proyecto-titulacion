@@ -18,9 +18,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/razonamiento-logico">
                         <img src="/images/module-icons/icon-level-1.png" alt="icono nivel 1">
                     </a>
+                    <p class="title-module">Pensamiento Logico </p>
                 </button>
             </div>
             <div class="level-1" id="level-1-m1">
@@ -28,9 +29,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/razonamiento-matematico" class="<%= locals.isCompleteRazonamientoLogico ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-2.png" alt="icono nivel 2">
                     </a>
+                    <p class="title-module" >Razonamiento Matematico</p>
                 </button>
             </div>
             <div class="level-2" id="level-2-m1">
@@ -38,9 +40,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/varianles-modules" class="<%= locals.isCompleteRazonamientoMat ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-3.png" alt="icono nivel 3">
                     </a>
+                    <p class="title-module">Variables</p>
                 </button>
             </div>
             <div class="level-3" id="level-3-m1">
@@ -48,9 +51,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/string-module" class="<%= locals.isCompleteVariables ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-4.png" alt="icono nivel 4">
                     </a>
+                    <p class="title-module">Strings</p>
                 </button>
             </div>
             <div class="level-4" id="level-4-m1">
@@ -58,9 +62,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/numb-booleans-module" class="<%= locals.isCompleteStrings ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-5.png" alt="icono nivel 5">
                     </a>
+                    <p class="title-module">Numbers y Booleans</p>
                 </button>
             </div>
             <div class="level-5" id="level-5-m1">
@@ -68,9 +73,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/operators-module" class="<%= locals.isCompleteNumbAndBooleans ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-6.png" alt="icono nivel 6">
                     </a>
+                    <p class="title-module">Operadores</p>
                 </button>
             </div>
             <div class="level-6" id="level-6-m1">
@@ -78,9 +84,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/control-structures" class="<%= locals.isCompleteOperators ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-7.png" alt="icono nivel 7">
                     </a>
+                    <p class="title-module">Estructuras de Control</p>
                 </button>
             </div>
             <div class="level-7" id="level-7-m1">
@@ -88,9 +95,10 @@
                     <span class="shadow"></span>
                     <span class="edge"></span>
                     <span class="front"></span>
-                    <a href="/">
+                    <a href="/arrays-module" class="<%= locals.isCompleteControlStructures ? '' : 'link-disabled' %>">
                         <img src="/images/module-icons/icon-level-8.png" alt="icono nivel 8">
                     </a>
+                    <p class="title-module">Arrays</p>
                 </button>
             </div>
         </section>
@@ -107,13 +115,18 @@
                 </a>
             </li>
             <li class="user-opt">
-                <a href=""><span class="opt-user-img cards"></span><p>Flash Cards</p></a>
+                <a href="/flash-cards"><span class="opt-user-img cards"></span><p>Flash Cards</p></a>
             </li>
             <li class="user-opt">
-                <a href=""><span class="opt-user-img perfil"></span><p>Perfil</p></a>
+                <a href="/user-profile"><span class="opt-user-img perfil"></span><p>Perfil</p></a>
             </li>
             <li class="user-opt">
-                <a href=""><span class="opt-user-img config"></span><p>Configuración</p></a>
+                <a href="/user-config"><span class="opt-user-img config"></span><p>Configuración</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/logout" class="logout" id="logout">
+                    Cerrar Sesión
+                </a>
             </li>
         </ul>
     </aside>
@@ -125,23 +138,28 @@
     <footer class="user-opt-phone">
         <ul class="opt-user-phone">
             <li>
-                <a href="">
+                <a href="/main-page">
                     <span class="aprender"></span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/flash-cards">
                     <span class="cards"></span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/user-profile">
                     <span class="perfil"></span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/user-config">
                     <span class="config"></span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="/logout">
+                    Cerrar Sesión
                 </a>
             </li>
         </ul>

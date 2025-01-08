@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles/user-profile.css">
+</head>
+<body>
+
+    <main>
+        <div class="img-profile">
+            <figure>
+                <img src="<%= locals.userPhoto ? locals.userPhoto.replace('public/', '') : '/path/to/default-image.jpg' %>" alt="imagen del usuario">
+            </figure>
+        </div>
+
+        <div class="user-data">
+            <h3><%= locals.userName%></h3>
+            <h4><%= locals.userEmail %></h4>
+        </div>
+        
+        <div class="approved-modules">
+            <% if(locals.modulesApproved){ %>
+                <% for(let i = 0; i < locals.modulesApproved.length; i++){ %>
+                    <article class="module">
+                        <div class="header-article--module">
+                            <figure>
+                                <img src="/images/module-icons/icon-level-<%= i+1 %>.png" alt="icono del nivel <%= locals.modulesApproved[i].level %>">
+                            </figure>
+                            <h2><%= locals.modulesApproved[i].module_name %></h2>
+                        </div>
+                        <div class="module-info">
+                            <p class="max-score">Aprobado</p>
+                        </div>
+
+                        <figure class="approve-course">
+                            <img src="/images/califications/icons8-check-48.png" alt="aprobo curso">
+                        </figure>
+                    </article>
+                <% } %>
+                    
+            <% }else { %>
+                <p>No hay modulos aprobados</p>
+            <% } %>
+        </div>
+    </main>
+    <aside class="user-work--area">
+        <div class="home-title">
+            <%- include("partials/logo.ejs") %>
+        </div>
+        <ul class="user-area--opt">
+            <li class="user-opt">
+                <a href="/main-page">
+                    <span class="opt-user-img aprender"></span>
+                    <p>Aprender</p>
+                </a>
+            </li>
+            <li class="user-opt">
+                <a href="/flash-cards"><span class="opt-user-img cards"></span><p>Flash Cards</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-profile"><span class="opt-user-img perfil"></span><p>Perfil</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-config"><span class="opt-user-img config"></span><p>Configuración</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/logout" class="logout" id="logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer class="user-opt-phone">
+        <ul class="opt-user-phone">
+            <li>
+                <a href="/main-page">
+                    <span class="aprender"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/flash-cards">
+                    <span class="cards"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-profile">
+                    <span class="perfil"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-config">
+                    <span class="config"></span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="/logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

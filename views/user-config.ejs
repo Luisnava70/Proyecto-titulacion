@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles/user-profile.css">
+</head>
+<body>
+
+    <main>
+        <form class="user-data update-user" action="/update-profile" method="POST" enctype="multipart/form-data">
+            <!-- Contenedor para subir foto -->
+            <div class="upload-container">
+                <input type="file" id="fileUpload" name="profilePhoto" class="file-upload" />
+                <label for="fileUpload" class="upload-label">
+                    <div class="cloud-icon">
+                        <div class="cloud"></div>
+                    </div>
+                    <span>Sube tu foto!</span>
+                </label>
+                <img id="preview" src="" alt="Imagen previa" class="preview-NewImg" />
+            </div>
+        
+            <!-- Campo para el nuevo nombre del usuario -->
+            <label for="newUserName">Nuevo Nombre:</label>
+            <input type="text" id="newUserName" name="newUserName" value="<%= locals.userName %>" required />
+        
+            <!-- Email del usuario (solo lectura) -->
+            <h4><%= locals.userEmail %></h4>
+        
+            <!-- Botón para actualizar el perfil -->
+            <button type="submit" class="btn btn-dark btn-updateUser">Actualizar Perfil</button>
+        </form>
+    </main>
+    <aside class="user-work--area">
+        <div class="home-title">
+            <%- include("partials/logo.ejs") %>
+        </div>
+        <ul class="user-area--opt">
+            <li class="user-opt">
+                <a href="/main-page">
+                    <span class="opt-user-img aprender"></span>
+                    <p>Aprender</p>
+                </a>
+            </li>
+            <li class="user-opt">
+                <a href="/flash-cards"><span class="opt-user-img cards"></span><p>Flash Cards</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-profile"><span class="opt-user-img perfil"></span><p>Perfil</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/user-config"><span class="opt-user-img config"></span><p>Configuración</p></a>
+            </li>
+            <li class="user-opt">
+                <a href="/logout" class="logout" id="logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <footer class="user-opt-phone">
+        <ul class="opt-user-phone">
+            <li>
+                <a href="/main-page">
+                    <span class="aprender"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/flash-cards">
+                    <span class="cards"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-profile">
+                    <span class="perfil"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/user-config">
+                    <span class="config"></span>
+                </a>
+            </li>
+            <li>
+                <a href="/logout">
+                    Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        // Obtén los elementos
+    const fileInput = document.getElementById('fileUpload');
+    const previewImage = document.getElementById('preview');
+
+  // Escucha el evento de cambio (cuando el usuario selecciona un archivo)
+    fileInput.addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Obtén el primer archivo seleccionado
+    if (file) {
+      const reader = new FileReader(); // Crea un objeto FileReader para leer el archivo
+
+      // Define la función que se ejecutará cuando el archivo se haya leído
+    reader.onload = function(e) {
+        previewImage.src = e.target.result; // Establece la URL del archivo como fuente de la imagen
+        previewImage.style.display = 'block'; // Muestra la imagen
+    };
+
+      // Lee el archivo como una URL de datos
+        reader.readAsDataURL(file);
+    }
+  });
+    </script>
+</body>
+</html>

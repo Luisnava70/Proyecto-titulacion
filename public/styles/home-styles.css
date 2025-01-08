@@ -97,7 +97,7 @@ main {
 
 .module {
     width: 100%;
-    height: 100%;
+    height: 95%;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: repeat(8,1fr);
@@ -331,10 +331,30 @@ main {
     background-position: center; 
 }
 
+.user-area--opt .user-opt a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-principal);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+
 .user-opt{
     width: 90%;
     height: 70px;
     position: relative;
+}
+
+#logout{
+    background-color: red;
+    width: 140px;
+    height: 35px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
 }
 
 .aprender{
@@ -349,14 +369,18 @@ main {
 .config{
     background: url("/images/opt-user-icon/icons8-configuration-48.png");
 }
-.user-area--opt .user-opt a{
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-principal);
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    position: relative;
+
+
+.title-module {
+    color: #a569bd; 
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-top: 10px;
+
+    text-shadow: 
+        0 0 2px #a569bd,   
+        0 0 0px #a569bd,  
+        0 0 2px #a569bd;   
 }
 
 .user-area--opt .user-opt a p{
@@ -366,6 +390,13 @@ main {
 .user-opt-phone{
     display: none;
 }
+
+.btn-level .link-disabled {
+    pointer-events: none; /* Evita clics */
+    opacity: 0.5;        /* Estilo de deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor */
+}
+
 
 @media (max-width: 480px){
     body {
@@ -467,6 +498,17 @@ main {
         background-size: cover; 
         background-position: center;
         margin: 10px 10px;
+    }
+
+    .user-opt-phone .opt-user-phone .logout a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: red;
+        border-radius: 50%;
+        color: white;
+        font-size: 1.8rem;
+        text-align: center;
     }
 
     .user-work--area{
